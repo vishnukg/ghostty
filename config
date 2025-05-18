@@ -1,9 +1,9 @@
 # Transparent background with a bit of opaqueness (adjust value between 0.0 and 1.0)
-background-opacity = 0.41
+background-opacity = 0.3
 
-# Use FiraNerd Font size 16
+# Use Firacode Nerd Font size 16
 # Use Hack Font size 16
-font-family = "Hack Nerd Font" # Or the exact name of your Fira Nerd Font installation
+font-family = "Firacode Nerd Font" # Or the exact name of your Fira Nerd Font installation
 font-size = 16
 
 # Ligature support is generally enabled by default if the font supports it.
@@ -16,8 +16,8 @@ font-size = 16
 
 # Show minimal window decorations by removing the title bar and borders.
 # On macOS, you might alternatively consider macos-titlebar-style = tabs
-window-decoration = false
-#macos-titlebar-style = tabs
+#window-decoration = false
+macos-titlebar-style = tabs
 
 # Do not ask for confirmation when quitting or closing a surface (tab/split).
 confirm-close-surface = false
