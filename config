@@ -1,0 +1,26 @@
+# Transparent background with a bit of opaqueness (adjust value between 0.0 and 1.0)
+background-opacity = 0.41
+
+# Use FiraNerd Font size 16
+# Use Hack Font size 16
+font-family = "Hack Nerd Font" # Or the exact name of your Fira Nerd Font installation
+font-size = 16
+
+# Ligature support is generally enabled by default if the font supports it.
+# No specific configuration is needed to enable it.
+
+# Keybinding for new tab (Cmd+T is the default on macOS)
+# If you are on a different OS or have changed defaults, you might need to adjust this.
+# For macOS, this line is often not necessary as it's the default.
+# keybind = cmd+t=new_tab
+
+# Show minimal window decorations by removing the title bar and borders.
+# On macOS, you might alternatively consider macos-titlebar-style = tabs
+window-decoration = false
+#macos-titlebar-style = tabs
+
+# Do not ask for confirmation when quitting or closing a surface (tab/split).
+confirm-close-surface = false
+
+# Set Dark+ as the theme.
+theme = Dark+
