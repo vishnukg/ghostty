@@ -3,7 +3,7 @@ background-opacity = 0.3
 
 # Use Firacode Nerd Font size 16
 # Use Hack Font size 16
-font-family = "Firacode Nerd Font" # Or the exact name of your Fira Nerd Font installation
+font-family = "Firacode Nerd Font Retina" # Or the exact name of your Fira Nerd Font installation
 font-size = 16
 
 # Ligature support is generally enabled by default if the font supports it.
