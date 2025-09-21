@@ -24,3 +24,5 @@ confirm-close-surface = false
 
 # Set Dark+ as the theme.
 theme = Dark+
+cursor-style-blink = false
+shell-integration-features = no-cursor
