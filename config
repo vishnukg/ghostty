@@ -1,29 +1,90 @@
-# Transparent background with a bit of opaqueness (adjust value between 0.0 and 1.0)
-background-opacity = 0.3
+# =============================================================
+# Ghostty Configuration — ported from Kitty
+# =============================================================
 
-# Use Firacode Nerd Font size 16
-# Use Hack Font size 16
-font-family = "Firacode Nerd Font Retina" # Or the exact name of your Fira Nerd Font installation
+# --- Fonts ---
+font-family = "Fira Code"
 font-size = 16
+# Ligatures are on by default when the font supports them.
+# To disable: font-feature = -calt,-liga
 
-# Ligature support is generally enabled by default if the font supports it.
-# No specific configuration is needed to enable it.
-
-# Keybinding for new tab (Cmd+T is the default on macOS)
-# If you are on a different OS or have changed defaults, you might need to adjust this.
-# For macOS, this line is often not necessary as it's the default.
-# keybind = cmd+t=new_tab
-
-# Show minimal window decorations by removing the title bar and borders.
-# On macOS, you might alternatively consider macos-titlebar-style = tabs
-#window-decoration = false
-macos-titlebar-style = tabs
-
-# Do not ask for confirmation when quitting or closing a surface (tab/split).
-confirm-close-surface = false
-
-# Set Dark+ as the theme.
-theme = Dark+
+# --- Appearance ---
+background-opacity = 0.3
+background-blur = false
 cursor-style = block
 cursor-style-blink = false
+
+# Dim unfocused splits (equivalent to kitty's inactive_text_alpha = 0.6)
+unfocused-split-opacity = 0.6
+
+# --- Theme (VS Code Dark+, matching kitty's VSCode_Dark theme) ---
+theme = Dark+
+
+# --- macOS window chrome ---
+# Native tab bar in the title bar area
+macos-titlebar-style = tabs
+
+# --- Bells & Confirmations ---
+# Note: Ghostty v1.3 uses the OS system bell; disable it via macOS System Settings > Sound
+confirm-close-surface = false
+
+# --- Shell Integration ---
+# Shell integration handles cwd inheritance for new tabs/splits automatically
 shell-integration-features = no-cursor
+
+# =============================================================
+# Keyboard Shortcuts
+# NOTE: Ghostty already provides defaults for many bindings.
+#   Text navigation (alt+←/→, cmd+←/→) and tab jumps (cmd+1–8)
+#   are already built-in and do NOT need to be repeated here.
+# =============================================================
+
+# --- Opacity Toggle (screen sharing) ---
+# Toggles between configured opacity (0.3) and fully opaque (1.0)
+keybind = cmd+shift+o=toggle_background_opacity
+# cmd+shift+p: override default toggle_command_palette (same toggle, two keys like kitty)
+keybind = cmd+shift+p=toggle_background_opacity
+
+# --- Splitting ---
+# cmd+shift+v: override default paste_from_selection → vertical split (right)
+keybind = cmd+shift+v=new_split:right
+# cmd+shift+h: horizontal split (down)
+keybind = cmd+shift+h=new_split:down
+# cmd+shift+d: close current surface (kitty: close_window)
+keybind = cmd+shift+d=close_surface
+# cmd+enter: new OS window (kitty: new_window); overrides default toggle_fullscreen
+keybind = cmd+enter=new_window
+
+# --- Focus Navigation between Splits (vim-style) ---
+# cmd+k overrides default clear_screen; cmd+j overrides scroll_to_selection
+keybind = cmd+h=goto_split:left
+keybind = cmd+l=goto_split:right
+keybind = cmd+k=goto_split:up
+keybind = cmd+j=goto_split:down
+
+# --- Cycle through Splits (creation order, kitty: next_window / previous_window) ---
+# cmd+n overrides default new_window; cmd+p is unbound by default
+keybind = cmd+n=goto_split:next
+keybind = cmd+p=goto_split:previous
+
+# --- Resize Splits ---
+# These override the built-in ctrl+cmd+arrow defaults (which use 10px steps; using 20px here)
+keybind = ctrl+cmd+left=resize_split:left,20
+keybind = ctrl+cmd+right=resize_split:right,20
+keybind = ctrl+cmd+up=resize_split:up,20
+keybind = ctrl+cmd+down=resize_split:down,20
+# Reset / equalize all splits (kitty: resize_window reset)
+keybind = ctrl+cmd+r=equalize_splits
+
+# --- Zoom Split (kitty: toggle_layout stack) ---
+# cmd+z overrides default undo; undo remains available via cmd+shift+t
+keybind = cmd+z=toggle_split_zoom
+
+# --- Tabs ---
+keybind = cmd+t=new_tab
+keybind = alt+n=next_tab
+keybind = alt+p=previous_tab
+# cmd+9 → tab 9 specifically (ghostty default maps cmd+9 → last_tab)
+keybind = cmd+9=goto_tab:9
+# cmd+0 → tab 10
+keybind = cmd+0=goto_tab:10
